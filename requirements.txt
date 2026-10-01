@@ -1,0 +1,25 @@
+# ------------------------------------------------------------------
+# Enterprise Agentic Knowledge & Code Orchestrator — pinned deps
+# Python 3.11+ recommended (developed/tested on 3.12)
+# ------------------------------------------------------------------
+
+# --- Orchestration & agent framework ---
+langchain-core>=0.3,<2        # Base message types, LangChain protocol primitives
+langgraph>=0.2                # StateGraph orchestration engine (nodes/edges/checkpoints)
+
+# --- LLM provider: Alibaba Cloud Model Studio (DashScope / Qwen) ---
+dashscope>=1.20              # Native SDK; used directly to avoid heavyweight langchain-community coupling
+
+# --- Hybrid context layer ---
+chromadb>=0.5                # Embedded persistent vector store (unstructured memory)
+networkx>=3.3                # Knowledge graph (structured relational memory)
+
+# --- Production API ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pydantic-settings>=2.3       # Typed, env-driven configuration
+
+# --- Utilities ---
+python-dotenv>=1.0           # Load DASHSCOPE_API_KEY from .env in dev
+tenacity>=8.3                # Retry/backoff for transient LLM & embedding failures
